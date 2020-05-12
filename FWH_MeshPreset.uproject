@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{9B419817-4107-079E-3A68-5297B478EA41}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "FWH_MeshPreset",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
