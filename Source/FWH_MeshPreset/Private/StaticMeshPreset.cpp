@@ -7,3 +7,7 @@ UStaticMesh* UStaticMeshPreset::GetAssignedMesh()
 {
 	return StaticMesh;
 }
+TArray<UMaterialInterface*> UStaticMeshPreset::GetMaterials()
+{
+	return Materials;
+}

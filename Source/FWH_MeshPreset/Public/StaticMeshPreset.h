@@ -14,7 +14,7 @@
 /**
  *
  */
-//UCLASS(meta=(BlueprintSpawnableComponent))
+ //UCLASS(meta=(BlueprintSpawnableComponent))
 UCLASS()
 class FWH_MESHPRESET_API UStaticMeshPreset : public UObject//, public IAssetTypeActions
 {
@@ -27,4 +27,5 @@ class FWH_MESHPRESET_API UStaticMeshPreset : public UObject//, public IAssetType
 
 public:
 	UStaticMesh* GetAssignedMesh();
+	TArray<UMaterialInterface*> GetMaterials();
 };

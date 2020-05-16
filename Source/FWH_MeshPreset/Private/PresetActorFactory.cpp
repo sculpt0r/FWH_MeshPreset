@@ -42,6 +42,15 @@ void UPresetActorFactory::PostSpawnActor(UObject* Asset, AActor* NewActor)
 	{
 		UE_LOG(LogTemp, Log, TEXT("Mesh has some render data!"));
 		StaticMeshComponent->StaticMeshDerivedDataKey = StaticMesh->RenderData->DerivedDataKey;
+
+		auto mats = meshPreset->GetMaterials();
+		int32 materialIndex = 0;
+		for (auto& materialI : mats)
+		{
+			UE_LOG(LogTemp, Log, TEXT("Added material!"));
+			StaticMesh->SetMaterial(materialIndex, materialI);
+			++materialIndex;
+		}
 	}
 	else {
 
