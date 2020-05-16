@@ -3,3 +3,7 @@
 
 #include "StaticMeshPreset.h"
 
+UStaticMesh* UStaticMeshPreset::GetAssignedMesh()
+{
+	return StaticMesh;
+}
