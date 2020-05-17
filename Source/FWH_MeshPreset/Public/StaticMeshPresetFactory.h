@@ -21,7 +21,12 @@ class FWH_MESHPRESET_API UStaticMeshPresetFactory : public UFactory
 		//virtual bool DoesSupportClass(UClass * Class) override;
 	//virtual uint32 GetMenuCategories() const override;
 	 //UFactory interface
-	UStaticMeshPresetFactory(const FObjectInitializer& ObjectInitializer);
+		UStaticMeshPresetFactory(const FObjectInitializer& ObjectInitializer);
 	virtual UObject* FactoryCreateNew(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn) override;
 	// End of UFactory interface	
+
+	virtual void PostEditChangeProperty
+	(
+		struct FPropertyChangedEvent & PropertyChangedEvent
+	) override;
 };

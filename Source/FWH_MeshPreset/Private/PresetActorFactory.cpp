@@ -48,7 +48,8 @@ void UPresetActorFactory::PostSpawnActor(UObject* Asset, AActor* NewActor)
 		for (auto& materialI : mats)
 		{
 			UE_LOG(LogTemp, Log, TEXT("Added material!"));
-			StaticMesh->SetMaterial(materialIndex, materialI);
+
+			StaticMeshComponent->SetMaterial(materialIndex, materialI);
 			++materialIndex;
 		}
 	}

@@ -17,6 +17,12 @@ UObject* UStaticMeshPresetFactory::FactoryCreateNew(UClass* Class, UObject* InPa
 {
 	return NewObject<UStaticMeshPreset>(InParent, Class, Name, Flags);
 }
+void  UStaticMeshPresetFactory::PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent)
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+	UE_LOG(LogTemp, Log, TEXT("Import object in its factory!"));
+
+}
 //uint32 UStaticMeshPresetFactory::GetMenuCategories() const
 //{
 //	//Let's place this asset in the Blueprints category in the Editor
