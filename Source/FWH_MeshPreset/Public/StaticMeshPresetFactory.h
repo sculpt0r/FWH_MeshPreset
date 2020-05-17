@@ -16,14 +16,8 @@ UCLASS(HideCategories = Object)
 class FWH_MESHPRESET_API UStaticMeshPresetFactory : public UFactory
 {
 	GENERATED_BODY()
-		//public:
-		//UStaticMeshPresetFactory();
-		//virtual bool DoesSupportClass(UClass * Class) override;
-	//virtual uint32 GetMenuCategories() const override;
-	 //UFactory interface
 		UStaticMeshPresetFactory(const FObjectInitializer& ObjectInitializer);
 	virtual UObject* FactoryCreateNew(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn) override;
-	// End of UFactory interface	
 
 	virtual void PostEditChangeProperty
 	(

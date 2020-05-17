@@ -7,14 +7,12 @@
 #include "Engine/StaticMesh.h"
 #include "Materials/MaterialInterface.h"
 
-//#include "IAssetTypeActions.h"
+#include "Engine/StaticMeshActor.h"
 
 #include "StaticMeshPreset.generated.h"
-
 /**
  *
  */
- //UCLASS(meta=(BlueprintSpawnableComponent))
 UCLASS()
 class FWH_MESHPRESET_API UStaticMeshPreset : public UObject//, public IAssetTypeActions
 {
@@ -24,8 +22,9 @@ class FWH_MESHPRESET_API UStaticMeshPreset : public UObject//, public IAssetType
 
 	UPROPERTY(EditAnywhere)
 		TArray<UMaterialInterface*>Materials;
-
+	virtual void PostEditChangeProperty(FPropertyChangedEvent & PropertyChanged) override;
 public:
 	UStaticMesh* GetAssignedMesh();
 	TArray<UMaterialInterface*> GetMaterials();
+	TArray<AStaticMeshActor*> spawnedActors;
 };

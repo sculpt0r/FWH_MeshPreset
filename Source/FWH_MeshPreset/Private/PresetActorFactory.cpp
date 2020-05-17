@@ -29,29 +29,36 @@ void UPresetActorFactory::PostSpawnActor(UObject* Asset, AActor* NewActor)
 	UE_LOG(LogTemp, Log, TEXT("******************UPresetActorFactory::Post Spawn ACtor !!!!! ******************"));
 	UStaticMeshPreset* meshPreset = CastChecked<UStaticMeshPreset>(Asset);
 
+
 	UStaticMesh* StaticMesh = meshPreset->GetAssignedMesh();
 
 	AStaticMeshActor* StaticMeshActor = CastChecked<AStaticMeshActor>(NewActor);
 	UStaticMeshComponent* StaticMeshComponent = StaticMeshActor->GetStaticMeshComponent();
 	check(StaticMeshComponent);
 
+	meshPreset->spawnedActors.Add(StaticMeshActor);
+
 	StaticMeshComponent->UnregisterComponent();
 
 	StaticMeshComponent->SetStaticMesh(StaticMesh);
+
 	if (StaticMesh->RenderData)
 	{
 		UE_LOG(LogTemp, Log, TEXT("Mesh has some render data!"));
+		//StaticMeshComponent->StaticMeshDerivedDataKey = meshPreset->DerivedDataKey;
 		StaticMeshComponent->StaticMeshDerivedDataKey = StaticMesh->RenderData->DerivedDataKey;
 
 		auto mats = meshPreset->GetMaterials();
-		int32 materialIndex = 0;
-		for (auto& materialI : mats)
+		//int32 materialIndex = 0; 
+		StaticMeshComponent->OverrideMaterials = meshPreset->GetMaterials();
+
+		/*for (auto& materialI : mats)
 		{
 			UE_LOG(LogTemp, Log, TEXT("Added material!"));
 
 			StaticMeshComponent->SetMaterial(materialIndex, materialI);
 			++materialIndex;
-		}
+		}*/
 	}
 	else {
 
